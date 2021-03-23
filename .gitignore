@@ -1,0 +1,5 @@
+fc18_electron-win32-x64/
+fc18_electron-darwin-x64/
+node_modules/
+.DS_Store
+*/.DS_Store

@@ -1,0 +1,15 @@
+{
+  "name": "fc18_electron",
+  "version": "1.0.0",
+  "description": "A electron based GUI for fc18 game.",
+  "main": "main.js",
+  "scripts": {
+    "test": "electron ."
+  },
+  "author": "cqqqwq",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^12.0.1",
+    "electron-packager": "^15.2.0"
+  }
+}
