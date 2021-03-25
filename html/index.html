@@ -8,6 +8,9 @@
         color: red;
       }
     </style>
+    <style type="text/css">
+      @import "../css/index.css";
+    </style>
   </head>
   <body>
     <h1>Hello World!</h1>
@@ -17,6 +20,11 @@
     <span id="version-electron" class="version"></span>
     .<br/>
 
+
+    <div id="blocks" class="flex-column-center"></div>
+
+  </body>
+    <script src="../js/index.js"></script>
     <script type="text/javascript">
       console.log('process: ', process);
       var versionNode = process.version;

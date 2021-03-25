@@ -25,7 +25,7 @@ function createWindow() {
   // 加载应用的 index.html。
   // 这里使用的是 file 协议，加载当前目录下的 index.html 文件。
   // 也可以使用 http 协议，如 mainWindow.loadURL('http://nodejh.com')。
-  mainWindow.loadURL(`file://${__dirname}/index.html`);
+  mainWindow.loadURL(`file://${__dirname}/html/index.html`);
 
   // 启用开发工具。
   // mainWindow.webContents.openDevTools();

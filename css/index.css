@@ -1,0 +1,24 @@
+.flex-row-center{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-column-center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.map-cell{
+    border:1px solid red;
+    flex: 1 0 auto;
+    margin: 2px;
+}
+.map-cell:before {
+    content:'';
+    float:left;
+    padding-top:100%;
+}
