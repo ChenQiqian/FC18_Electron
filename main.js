@@ -1,10 +1,15 @@
-const electron = require('electron');
+const { app, BrowserWindow, BrowserView, globalShortcut } = require('electron')
+const { Menu, ipcMain } = require('electron')
 
-const {
-  app, // 控制应用生命周期的模块
-  BrowserWindow, // 创建原生浏览器窗口的模块
-} = electron;
+const path = require('path');
+const { isPrimitive } = require('util');
 
+
+// Enable live reload for Electron too
+require('electron-reload')(__dirname, {
+  // Note that the path to electron may vary according to the main file
+  electron: require(`${__dirname}/node_modules/electron`)
+});
 // 保持一个对于 window 对象的全局引用，如果不这样做，
 // 当 JavaScript 对象被垃圾回收， window 会被自动地关闭
 let mainWindow;
@@ -61,4 +66,25 @@ app.on('activate', () => {
   }
 });
 
-// after electron 5.0, this value is default to false, which will cause "require is not define
+ipcMain.on('showDetail', (e,m) => {
+  detailwindow = new BrowserWindow({
+    width: 600, 
+    height: 400,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+      devTools: true
+    },
+    
+    parent: mainWindow, //win是主窗口
+  })
+  detailwindow.loadFile(path.resolve(__dirname,'./html/blockdetail.html'));
+  console.log(path.resolve(__dirname,'./html/blockdetail.html'));
+  // detailwindow.webContents.openDevTools()
+  console.log(m)
+  detailwindow.on('closed',() => {
+    detailwindow = null
+  })
+  detailwindow.webContents.send('sendParams',m)
+})
